@@ -14,7 +14,14 @@ a {
     height: 80px;
     /* color: #fff !important; */
     background-color: #77B7D1 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* أعلى من أي عنصر في الصفحة */
 }
+
+
 .navbar .navbar-brand {
     color: #F9D338 !important;
     font-weight: bold;
@@ -22,7 +29,10 @@ a {
 }
 .navbar .nav-link {
     color: #fff !important;
+    z-index: 100 !important;
 }
+
+/* end navbar */
 #hero {
     min-height: 90vh;
     /* margin-top: 10vh; */
