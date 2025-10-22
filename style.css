@@ -12,7 +12,7 @@ a {
 }
 .navbar {
     height: 80px;
-    color: #fff !important;
+    /* color: #fff !important; */
     background-color: #77B7D1 !important;
 }
 .navbar .navbar-brand {
@@ -105,3 +105,7 @@ a {
       transform: scale(1.05);
     }
 /* end category section */
+
+/* start popup images */
+ 
+/* end popup images */

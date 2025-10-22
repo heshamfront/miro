@@ -1,16 +1,63 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>miro</title>
-  <!-- Bootstrap 5 CDN -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery with Bootstrap Modal (Reliable)</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    .navbar {
+    height: 80px;
+    /* color: #fff !important; */
+    background-color: #77B7D1 !important;
+    }
+    .navbar .navbar-brand {
+        color: #F9D338 !important;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .navbar .nav-link {
+        color: #fff !important;
+    }
+    .img-grid img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:8px;
+      cursor:pointer;
+      transition:transform .25s ease;
+    }
+    .img-grid img:hover{ transform:scale(1.03); }
+
+    /* توسيط الصورة داخل المودال */
+    .modal-dialog-centered .modal-content {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .modal-body {
+      padding: 0;
+      text-align: center;
+    }
+    .modal-body img {
+      min-width: 80%;
+      min-height: 55vh;
+      border-radius: 8px;
+    }
+
+    /* زر الإغلاق (تغيير شكل) */
+    .btn-close-white {
+      filter: invert(1);
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+    <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
       <!-- Logo -->
@@ -36,10 +83,97 @@
       </div>
     </div>
   </nav>
+  <!-- End Navbar -->
 
-cakes
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="mb-4">معرض أعمالنا</h2>
+    <div class="row g-3 img-grid">
+      <!-- كل صورة تحمل صفات لفتح مودال وتحدد رابط الصورة الكاملة في data-bs-target / data-bs-toggle -->
+      <div class="col-md-4 col-sm-6">
+        <img src="./photo/cups/519544794_1343233257810930_7872122808648196010_n.jpg"
+             alt="Image 1"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="./photo/cups/519544794_1343233257810930_7872122808648196010_n.jpg">
+      </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="col-md-4 col-sm-6">
+        <img src="https://via.placeholder.com/800x550/007bff/fff?text=Image+2"
+             alt="Image 2"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="https://via.placeholder.com/1400x900/007bff/fff?text=Image+2+Large">
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <img src="https://via.placeholder.com/800x550/6610f2/fff?text=Image+3"
+             alt="Image 3"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="https://via.placeholder.com/1400x900/6610f2/fff?text=Image+3+Large">
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <img src="https://via.placeholder.com/800x550/f39c12/fff?text=Image+4"
+             alt="Image 4"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="https://via.placeholder.com/1400x900/f39c12/fff?text=Image+4+Large">
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <img src="https://via.placeholder.com/800x550/198754/fff?text=Image+5"
+             alt="Image 5"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="https://via.placeholder.com/1400x900/198754/fff?text=Image+5+Large">
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <img src="https://via.placeholder.com/800x550/d63384/fff?text=Image+6"
+             alt="Image 6"
+             data-bs-toggle="modal"
+             data-bs-target="#imageModal"
+             data-bs-img="https://via.placeholder.com/1400x900/d63384/fff?text=Image+6+Large">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap Modal (واحد يعاد استخدامه لكل الصور) -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body position-relative">
+        <!-- زر إغلاق -->
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+        <!-- الصورة هنا سيتغير src ديناميكياً -->
+        <img src="" alt="Large view" id="modalImage">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (يجب وجوده) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // عندما يُفتح المودال (قبل الظهور) نلتقط العنصر المصدر ونغير صورة المودال
+  const imageModal = document.getElementById('imageModal');
+  imageModal.addEventListener('show.bs.modal', function (event) {
+    const triggerImg = event.relatedTarget; // الصورة التي ضغط عليها
+    const largeSrc = triggerImg.getAttribute('data-bs-img') || triggerImg.src;
+    const altText = triggerImg.alt || '';
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = largeSrc;
+    modalImage.alt = altText;
+  });
+
+  // نظّف src عند إغلاق المودال لمنع preload غير مرغوب
+  imageModal.addEventListener('hidden.bs.modal', function () {
+    document.getElementById('modalImage').src = '';
+  });
+</script>
 </body>
 </html>
