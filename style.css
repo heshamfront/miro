@@ -44,10 +44,19 @@ a {
 .navbar .nav-link {
     color: var(--fourth-color) !important;
     z-index: 100 !important;
+    font-weight: 500;
 }
+@media (max-width: 992px) {
+    .navbar .nav-link {
+        background-color: var(--main-color) !important;
+        text-align: center;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
 section {
   padding-top: 200px !important;
   min-height: 100vh !important;
+}
 }
 
 .hero-section {
@@ -221,12 +230,13 @@ section {
     padding: 15px;
   }
 }
-@media (max-width: 992px) {
+/* @media (max-width: 1200px) {
+
+  } */
   section.cards-section {
     height: auto;
     padding: 60px 0;
   }
-}
 
 
 
