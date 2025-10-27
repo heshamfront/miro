@@ -221,10 +221,13 @@ section {
     padding: 15px;
   }
 }
-.nada {
-  min-height
-  /* direction: ltr !important; */
+@media (max-width: 992px) {
+  section.cards-section {
+    height: auto;
+    padding: 60px 0;
+  }
 }
+
 
 
 
