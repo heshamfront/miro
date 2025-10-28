@@ -19,6 +19,10 @@ body {
     min-height: 100vh !important;
       background-color: var(--second-color) !important;
 }
+/* whatsapp icon */
+
+
+/* end whatsapp icon */
 html {
     scroll-behavior: smooth;
 }
@@ -325,7 +329,13 @@ section {
       justify-content: space-between;
       padding: 40px 0;
     }
-
+    @media (min-width: 990px) {
+      .col {
+        padding-top: 150px;
+        .ico {
+          font-size: 100px;}
+      }
+    }
     .content-box {
       display: flex;
       align-items: center;
@@ -382,7 +392,18 @@ section {
 
 
 
-
+i.fa-facebook {
+  color: #3b5998 !important;
+}
+i.fa-instagram {
+  color: #E1306C !important;
+}
+i.fa-whatsapp {
+  color: #25D366 !important;
+}
+i.fa-tiktok {
+  color: #000000 !important;
+}
 
 
 
@@ -394,15 +415,29 @@ footer {
   color: #eee;
   /* خلفية غامقة */
 }
-
+footer .toc {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 footer p {
   color: #bbb;
   max-width: 400px;
 }
 .social-icons {
-  /* margin-top: 20px;*/
+  /* margin-twidop: 20px;*/
   height: 50px;
-
+  min-width: 400px !important;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 0 20px;
+  align-items: center;
+ 
+}
+footer h4 {
+  color: var(--theird-color) !important; 
 }
 
 footer a {
@@ -423,3 +458,27 @@ footer a i:hover {
 
 
 /* end footer */
+
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* لون واتساب */
+  color: white;
+  border-radius: 50%;
+  font-size: 28px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.whatsapp-float:hover { 
+  background-color: #1ebe57;
+  transform: scale(1.1);
+}
+.whatsapp-float .fa-whatsapp:hover {
+  color: white !important;
+  font-size: 50px !important;
+}
