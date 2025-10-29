@@ -485,7 +485,7 @@ footer .social-icons .fa-facebook {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   width: 100%;
 }
 @media (max-width: 790px) {
