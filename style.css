@@ -484,7 +484,16 @@ footer .social-icons .fa-facebook {
   color: #3b5998 !important;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+@media (max-width: 790px) {
 
+  body {
+    width: 100%;
+  }
+}
 
 /* end footer */
 
