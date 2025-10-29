@@ -514,7 +514,11 @@ html, body {
 .whatsapp-float:hover { 
   background-color: #1ebe57;
   transform: scale(1.1);
+}
+.whatsapp-float .fa-whatsapp {
   color: white !important;
+  font-size: 40px !important;
+
 }
 .whatsapp-float .fa-whatsapp:hover {
   font-size: 50px !important;
